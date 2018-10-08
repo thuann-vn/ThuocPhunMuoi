@@ -886,13 +886,13 @@
         .article-content{
             font-family: 'Noticia Text', serif;
             font-size: 12px;
-            font-weight: bold;
             text-align: justify
         }
 
         .article-title{
             font-size: 18px;
             margin-bottom: 20px;
+            font-weight: bold;
 
             a{
                 color: $mainColor;
@@ -908,10 +908,40 @@
                 border: 1px solid #4c4b4c;
                 color: #4c4b4c;
                 line-height: 16px;
+                font-size: 13px;
             }
         }
 	 }
  }
+
+
+ /* NEWS CSS
+  -------------------------------------------------- */
+ .news-page{
+    .page-title{
+        background-image: url('../images/news/banner.png')
+    }
+ }
+
+ /* CONTACT CSS
+  -------------------------------------------------- */
+  .contact-page{
+    .page-title{
+        background-image: url('../images/contact/banner.png')
+    }
+
+    .contact-list{
+        li{
+            list-style: none;
+            display: block;
+
+            a{
+                text-transform: uppercase;
+            }
+        }
+    }
+ }
+
  /* RESPONSIVE CSS
   -------------------------------------------------- */
 

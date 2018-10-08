@@ -967,13 +967,13 @@ footer .footer-social-links a {
 .article-list .article .article-content {
   font-family: 'Noticia Text', serif;
   font-size: 12px;
-  font-weight: bold;
   text-align: justify;
 }
 
 .article-list .article .article-title {
   font-size: 18px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .article-list .article .article-title a {
@@ -991,6 +991,28 @@ footer .footer-social-links a {
   border: 1px solid #4c4b4c;
   color: #4c4b4c;
   line-height: 16px;
+  font-size: 13px;
+}
+
+/* NEWS CSS
+  -------------------------------------------------- */
+.news-page .page-title {
+  background-image: url("../images/news/banner.png");
+}
+
+/* CONTACT CSS
+  -------------------------------------------------- */
+.contact-page .page-title {
+  background-image: url("../images/contact/banner.png");
+}
+
+.contact-page .contact-list li {
+  list-style: none;
+  display: block;
+}
+
+.contact-page .contact-list li a {
+  text-transform: uppercase;
 }
 
 /* RESPONSIVE CSS
