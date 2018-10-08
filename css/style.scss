@@ -45,7 +45,11 @@
  }
 
  .no-padding{
-     padding: 0 !important
+     padding: 0 !important;
+
+     @include phone{
+        padding: 0 10px !important;
+     }
  }
 
  /*
@@ -814,6 +818,17 @@
          right: 0;
          z-index: 1;
      }
+     
+     @include phone {
+        margin-top: 76px;
+        background-position: center;
+        height: 200px;
+        margin-bottom: 30px;
+
+        h1{
+            font-size: 40px;
+        }
+    }
  }
 
  .pagination{
@@ -894,9 +909,16 @@
             margin-bottom: 20px;
             font-weight: bold;
 
-            a{
-                color: $mainColor;
-            }
+            
+           a{
+            font-family: 'Noticia Text', serif;
+           color: #333;
+
+           &:hover{
+               color: $mainColor;
+               text-decoration: none
+           }
+       }
         }
 
         .read-more{
@@ -911,7 +933,36 @@
                 font-size: 13px;
             }
         }
-	 }
+
+        @include phone{
+            padding: 0;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+
+            .article-image{
+                position: relative;
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+
+            .article-content{
+                margin-top: 20px;
+            }
+
+            .article-title{
+                margin-bottom: 10px;
+            }
+
+            .read-more{
+                margin-top: 20px;
+            }
+        }
+     }
+     
+     @include phone{
+         margin-bottom: 30px;
+     }
  }
 
 
@@ -931,17 +982,209 @@
     }
 
     .contact-list{
+        padding: 0;
         li{
             list-style: none;
             display: block;
+            background: url("../images/map-mark.png") no-repeat 0 5px;
+            padding-left: 30px;
+            margin-bottom: 10px;
 
             a{
                 text-transform: uppercase;
+                font-family:  'Gotham Medium';
+                font-weight: bold;
+                font-size: 18px;
+                color: #1a1c27;
+                line-height: 32px;
             }
+        }
+    }
+
+    .map-content{
+        padding: 40px;
+        address{    
+            line-height: 36px;
+            font-size: 16px;
+            color: #1a1c27;
+            font-weight: 500;
+
+            .fa{
+                color: #333;
+            }
+            .fa-mobile{
+                font-size: 22px;
+                position: relative;
+                left: 0px;
+                width: 20px;
+            }
+        }
+    }
+
+    .map-title{
+        background: $mainColor;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 45px;
+        font-family:  'Gotham Medium';
+    }
+    #map{
+        height: 610px;
+    }
+ }
+
+ /* ABOUT CSS
+  -------------------------------------------------- */
+  .about-page{
+    .page-title{
+        background-image: url('../images/about-us/banner.png')
+    }
+
+    .about-content{
+        font-family: 'Noticia Text', serif;
+        img{
+            margin: 40px auto;
+            display: block;
+            max-width: 100%;
+        }
+    
+        p{
+            margin-bottom: 15px
+        }
+
+        h2{
+            margin-bottom: 40px;
         }
     }
  }
 
+
+ /* SERVICES CSS
+  -------------------------------------------------- */
+  .services-page{
+    .page-title{
+        background-image: url('../images/services/banner.png')
+    }
+
+    .service-item{
+        img{
+            width: 100%;
+        }
+
+        h3{
+            font-family: 'Noticia Text', serif;
+            font-weight: bold;
+            margin: 10px 0;
+            height: 70px;
+        }
+
+        .read-more{
+            font-family: 'Noticia Text', serif;
+            display: inline-block;
+            padding: 10px 35px;
+            border: 1px solid #4c4b4c;
+            color: #4c4b4c;
+            line-height: 16px;
+            font-size: 13px;
+        }
+
+        @include phone{
+            margin-bottom: 30px;
+        }
+    }
+ }
+
+ /* CUSTOMER CSS
+  -------------------------------------------------- */
+  .customer-page{
+    .page-title{
+        background-image: url('../images/customer/banner.png')
+    }
+    
+ .customer-list{
+    margin-bottom: 50px;
+    .customer{
+       position: relative;
+       min-height: 200px;
+       padding: 38px 0;
+       padding-left: 300px;
+       border-bottom: 1px solid #e6e6e6;
+
+       &:last-child{
+           border-bottom: 0
+       }
+
+       .customer-image{
+           position: absolute;
+           left: 0;
+           width: 270px;
+       }
+
+       .customer-content{
+           font-family: Arial, Helvetica, sans-serif;
+           font-size: 13px;
+           text-align: justify
+       }
+
+       .customer-title{
+           font-size: 18px;
+           margin-bottom: 20px;
+           font-weight: bold;
+
+           a{
+                font-family: 'Noticia Text', serif;
+               color: #333;
+
+               &:hover{
+                   color: $mainColor;
+                   text-decoration: none
+               }
+           }
+       }
+
+       .read-more{
+           margin-top: 35px;
+           a{
+               font-family: 'Noticia Text', serif;
+               display: inline-block;
+               padding: 10px 35px;
+               border: 1px solid #4c4b4c;
+               color: #4c4b4c;
+               line-height: 16px;
+               font-size: 13px;
+           }
+       }
+
+       @include phone{
+        padding: 0;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+
+        .customer-image{
+            position: relative;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        .customer-content{
+            margin-top: 20px;
+        }
+
+        .customer-title{
+            margin-bottom: 10px;
+        }
+
+        .read-more{
+            margin-top: 20px;
+        }
+    }
+    }
+}
+
+ }
  /* RESPONSIVE CSS
   -------------------------------------------------- */
 
