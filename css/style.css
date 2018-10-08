@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* COLORS AND VARIABLES
 -------------------------------------------------- */
 /* FONT FACES
@@ -514,7 +515,6 @@ body {
 /* CUSTOMERS
   ------------------------- */
 .customers {
-  background-image: url("../images//home/customer_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
@@ -724,6 +724,11 @@ body {
           transform-origin: left;
 }
 
+.locations .owl-item.center h4 {
+  background: #8dc73f;
+  color: #fff;
+}
+
 @media (max-width: 767px) {
   .locations .owl-item {
     -webkit-transform: scale(1);
@@ -761,6 +766,12 @@ footer {
   margin-top: 60px;
   background: #e8e8e8;
   padding-top: 60px;
+}
+
+@media (max-width: 767px) {
+  footer {
+    margin-top: 20px;
+  }
 }
 
 footer .footer-text-muted {
@@ -1102,7 +1113,7 @@ footer .footer-social-links a {
   width: 20px;
 }
 
-.contact-page .map-title {
+.contact-page .map-title, .contact-page .contact-list-toggle {
   background: #8dc73f;
   line-height: 50px;
   text-align: center;
@@ -1110,10 +1121,67 @@ footer .footer-social-links a {
   font-size: 24px;
   margin-bottom: 45px;
   font-family: 'Gotham Medium';
+  display: block;
+}
+
+.contact-page .contact-list-toggle {
+  margin-bottom: 0;
+  display: none;
 }
 
 .contact-page #map {
   height: 610px;
+}
+
+@media (max-width: 767px) {
+  .contact-page .map-title:not(.contact-list-toggle) {
+    display: none;
+  }
+  .contact-page .contact-list-toggle {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .contact-page .contact-list-toggle:after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+  }
+  .contact-page .contact-list-toggle:before {
+    content: 'Chọn tỉnh: ';
+  }
+  .contact-page .contact-list {
+    overflow: hidden;
+    -webkit-transition: 300ms ease;
+    transition: 300ms ease;
+    max-height: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    background: #fff;
+    border: 1px solid #efefef;
+    margin-top: -20px;
+  }
+  .contact-page .contact-list.active {
+    max-height: 10000px;
+    padding: 10px;
+  }
+  .contact-page .contact-left {
+    position: relative;
+  }
+  .contact-page #map {
+    height: 300px;
+  }
+  .contact-page .map-content {
+    padding: 20px 0;
+  }
 }
 
 /* ABOUT CSS

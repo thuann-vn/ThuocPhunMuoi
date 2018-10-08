@@ -497,7 +497,7 @@
   ------------------------- */
 
  .customers {
-     background-image: url("../images//home/customer_bg.png");
+    //  background-image: url("../images//home/customer_bg.png");
      background-repeat: no-repeat;
      background-size: cover;
      background-position: center top;
@@ -671,6 +671,11 @@
              &+.owl-item {
                  transform-origin: left;
              }
+
+             h4{
+                 background: $mainColor;
+                 color: #fff;
+             }
          }
          @include phone {
              transform: scale(1);
@@ -704,6 +709,10 @@
      margin-top: 60px;
      background: #e8e8e8;
      padding-top: 60px;
+
+     @include phone{
+         margin-top: 20px;
+     }
      .footer-text-muted {
          color: #1a1c27;
      }
@@ -1021,7 +1030,7 @@
         }
     }
 
-    .map-title{
+    .map-title, .contact-list-toggle{
         background: $mainColor;
         line-height: 50px;
         text-align: center;
@@ -1029,9 +1038,72 @@
         font-size: 24px;
         margin-bottom: 45px;
         font-family:  'Gotham Medium';
+        display: block;
+    }
+
+    .contact-list-toggle{
+        margin-bottom: 0;
+        display: none;
     }
     #map{
         height: 610px;
+    }
+
+    @include phone{
+        .map-title:not(.contact-list-toggle){
+            display: none;
+        }
+        .contact-list-toggle{
+            display: block;
+            margin-bottom: 20px;
+            font-size: 18px;
+
+            &:after{
+                display: inline-block;
+                width: 0;
+                height: 0;
+                margin-left: .255em;
+                vertical-align: .255em;
+                content: "";
+                border-top: .3em solid;
+                border-right: .3em solid transparent;
+                border-bottom: 0;
+                border-left: .3em solid transparent;
+            }
+
+            &:before{
+                content: 'Chọn tỉnh: '
+            }
+        }
+
+        .contact-list{
+            overflow: hidden;
+            transition: 300ms ease;
+            max-height: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+            background: #fff;
+            border: 1px solid #efefef;
+            margin-top: -20px;
+
+            &.active{
+                max-height: 10000px;
+                padding: 10px;
+            }
+        }
+
+        .contact-left{
+            position: relative
+        }
+
+        #map{
+            height: 300px
+        }
+
+        .map-content{
+            padding: 20px 0;
+        }
     }
  }
 

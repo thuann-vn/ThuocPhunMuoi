@@ -36,8 +36,14 @@ function initMap() {
             }
 
             $('.map-title').html($(this).data('title'));
+            $('.contact-list').removeClass('active');
         })
     });
 
     $('.contact-list').find('li').eq(0).find('a').trigger('click');
+
+    $('.contact-list-toggle').click(function(e){
+        e.preventDefault();
+        $('.contact-list').toggleClass('active');
+    })
 }
