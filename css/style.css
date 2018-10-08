@@ -1,5 +1,12 @@
 /* COLORS AND VARIABLES
 -------------------------------------------------- */
+/* FONT FACES
+-------------------------------------------------- */
+@font-face {
+  font-family: 'Gotham Medium';
+  src: url("../fonts/Gotham-Medium.otf");
+}
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -10,6 +17,10 @@ body {
 .container {
   width: 1170px;
   max-width: 100%;
+}
+
+.no-padding {
+  padding: 0 !important;
 }
 
 /*
@@ -24,12 +35,14 @@ body {
 }
 
 .box-shadow {
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 .flex-equal > * {
   -ms-flex: 1;
-  flex: 1;
+  -webkit-box-flex: 1;
+          flex: 1;
 }
 
 .overflow-hidden {
@@ -78,16 +91,20 @@ body {
   backdrop-filter: saturate(180%) blur(20px);
   padding-top: 10px;
   padding-bottom: 10px;
+  -webkit-transition: 300ms ease-in-out;
   transition: 300ms ease-in-out;
 }
 
 .site-header .site-nav {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .site-header .navbar-collapse .navbar-nav {
   width: 100%;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 @media (max-width: 767px) and (max-width: 767px) {
@@ -296,10 +313,9 @@ body {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100 */
   background: #ffffff;
   /* Old browsers */
-  background: -moz-linear-gradient(left, 0%, #ffffff 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
@@ -311,10 +327,9 @@ body {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100 */
   background: #ffffff;
   /* Old browsers */
-  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
   /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#ffffff));
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1);
@@ -414,7 +429,8 @@ body {
 .blog .post {
   display: block;
   background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .blog .post img {
@@ -524,7 +540,8 @@ body {
 .customers .customer-item {
   display: block;
   background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .customers .customer-item img {
@@ -683,22 +700,28 @@ body {
 }
 
 .locations .owl-item {
-  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
-  transform-origin: right;
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 
 .locations .owl-item.center {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .locations .owl-item.center + .owl-item {
-  transform-origin: left;
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 @media (max-width: 767px) {
   .locations .owl-item {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -835,11 +858,148 @@ footer .footer-social-links a {
   }
 }
 
+/* SUPPORT CSS
+  -------------------------------------------------- */
+.page-title {
+  height: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 96px;
+  margin-bottom: 80px;
+}
+
+.page-title h1 {
+  font-family: 'Gotham Medium';
+  font-size: 86px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.page-title:before {
+  content: '';
+  background: #8ac53b;
+  opacity: .4;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.pagination .page-link {
+  border-color: #e6e6e6;
+  color: #333;
+  padding: .5rem 1rem;
+  font-family: 'Arial', serif;
+  font-size: 14px;
+}
+
+.pagination .page-link:hover {
+  border-color: #8dc73f;
+}
+
+.pagination .page-link.pagination-title {
+  border: none;
+  padding-left: 0;
+}
+
+.pagination .page-link.pagination-title:hover {
+  background: none;
+  cursor: default;
+}
+
+.pagination .page-link.page-next, .pagination .page-link.page-prev {
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.pagination .page-link.page-next:hover, .pagination .page-link.page-prev:hover {
+  background: none;
+  color: #8dc73f;
+  border-color: #e6e6e6;
+}
+
+.pagination .page-item.active .page-link {
+  border-color: #8dc73f;
+  color: #333;
+  background: none;
+}
+
+.support-page .page-title {
+  background-image: url("../images/support/banner.png");
+}
+
+.article-list {
+  margin-bottom: 50px;
+}
+
+.article-list .article {
+  position: relative;
+  min-height: 200px;
+  padding: 38px 0;
+  padding-right: 300px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.article-list .article:last-child {
+  border-bottom: 0;
+}
+
+.article-list .article .article-image {
+  position: absolute;
+  right: 0;
+  width: 270px;
+}
+
+.article-list .article .article-content {
+  font-family: 'Noticia Text', serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.article-list .article .article-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.article-list .article .article-title a {
+  color: #8dc73f;
+}
+
+.article-list .article .read-more {
+  margin-top: 35px;
+}
+
+.article-list .article .read-more a {
+  font-family: 'Noticia Text', serif;
+  display: inline-block;
+  padding: 10px 35px;
+  border: 1px solid #4c4b4c;
+  color: #4c4b4c;
+  line-height: 16px;
+}
+
 /* RESPONSIVE CSS
   -------------------------------------------------- */
 @media (min-width: 768px) {
   .flex-md-equal > * {
     -ms-flex: 1;
-    flex: 1;
+    -webkit-box-flex: 1;
+            flex: 1;
   }
 }
+/*# sourceMappingURL=style.css.map */
