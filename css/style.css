@@ -179,6 +179,42 @@ body {
   height: 40px;
 }
 
+.site-header #mobile-menu-close {
+  display: none;
+  position: fixed;
+  right: 60px;
+  top: 20px;
+  z-index: 10;
+}
+
+.site-header #mobile-menu-close .lines:before, .site-header #mobile-menu-close .lines:after {
+  content: '';
+  height: 4px;
+  background: #fff;
+  display: block;
+  width: 26px;
+  margin: 10px;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  position: absolute;
+}
+
+.site-header #mobile-menu-close .lines:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.site-header #mobile-menu-close .lines:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+  .site-header #mobile-menu-close {
+    display: block;
+  }
+}
+
 /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
 /* Carousel base class */
@@ -444,6 +480,30 @@ body {
 
 .services .service-item:hover::after {
   display: block;
+}
+
+.services .owl-nav {
+  display: block !important;
+}
+
+.services .owl-carousel .owl-nav button.owl-next,
+.services .owl-carousel .owl-nav button.owl-prev {
+  position: absolute;
+  top: 250px;
+  background-color: #8dc73f;
+  padding: 15px 10px !important;
+  color: #fff;
+  display: block;
+  outline: none;
+}
+
+.services .owl-carousel .owl-nav button.owl-next:hover,
+.services .owl-carousel .owl-nav button.owl-prev:hover {
+  background-color: #72a330;
+}
+
+.services .owl-carousel .owl-nav button.owl-next {
+  right: 0;
 }
 
 /* BLOG
@@ -1436,6 +1496,54 @@ footer .footer-social-links a {
     -ms-flex: 1;
     -webkit-box-flex: 1;
             flex: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none;
+  }
+  #navbarCollapse {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: none;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: rgba(47, 55, 59, 0.97);
+    border: none;
+    height: 100% !important;
+  }
+  #navbarCollapse.show, #navbarCollapse.collapsing {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #navbarCollapse ul {
+    width: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 0 auto;
+    border-color: transparent;
+  }
+  #navbarCollapse ul li {
+    text-align: center;
+  }
+  #navbarCollapse ul li a {
+    color: #fff;
+    font-size: 20px;
+  }
+  #navbarCollapse ul li.active a {
+    color: #8dc73f;
   }
 }
 /*# sourceMappingURL=style.css.map */

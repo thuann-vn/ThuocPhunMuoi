@@ -195,6 +195,38 @@
              }
          }
      }
+
+     #mobile-menu-close{
+         display: none;
+         position: fixed;
+         right: 60px;
+         top: 20px;
+         z-index: 10;
+
+         .lines{
+             &:before, &:after{
+                content: '';
+                height: 4px;
+                background: #fff;
+                display: block;
+                width: 26px;
+                margin: 10px;
+                transform-origin: center;
+                position: absolute;
+             }
+
+             &:before{
+                transform: rotate(45deg);
+             }
+             &:after{
+                transform: rotate(-45deg);
+             }
+         }
+
+         @include phone{
+            display: block;
+         }
+     }
  }
 
  /* CUSTOMIZE THE CAROUSEL
@@ -438,6 +470,27 @@
              }
          }
      }
+
+     
+     .owl-nav {
+        display: block !important;
+    }
+    .owl-carousel .owl-nav button.owl-next,
+    .owl-carousel .owl-nav button.owl-prev {
+        position: absolute;
+        top: 250px;
+        background-color: $mainColor;
+        padding: 15px 10px !important;
+        color: #fff;
+        display: block;
+        outline: none;
+        &:hover {
+            background-color: darken($mainColor, 10%);
+        }
+    }
+    .owl-carousel .owl-nav button.owl-next {
+        right: 0;
+    }
  }
 
  /* BLOG
@@ -1307,3 +1360,47 @@
          flex: 1;
      }
  }
+ @include phone{
+    .hidden-xs{
+        display: none;
+    }
+
+    #navbarCollapse{
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: none;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        background: rgba(47,55,59,0.97);
+        border: none;
+        height: 100% !important;
+
+        &.show, &.collapsing{
+            display: flex;
+        }
+        ul{
+            width: auto;
+            align-self: center;
+            margin: 0 auto;
+            border-color: transparent;
+
+            li{
+                text-align: center;
+                a{
+                    color: #fff;
+                    font-size: 20px;
+                }
+
+                &.active{
+                    a{
+                        color: $mainColor
+                    }
+                }
+            }
+        }
+    }
+}
