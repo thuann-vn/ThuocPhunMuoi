@@ -227,6 +227,10 @@
             display: block;
          }
      }
+
+     @include phone{
+         padding: 0 16px;
+     }
  }
 
  /* CUSTOMIZE THE CAROUSEL
@@ -235,7 +239,12 @@
  /* Carousel base class */
 
  .carousel {
-     margin-bottom: 75px;
+    margin-top: 96px;
+    margin-bottom: 75px;
+
+     @include phone{
+         margin-top: 56px;
+     }
  }
 
  /* Since positioning the image, we need to help out the caption */
@@ -280,25 +289,35 @@
          right: 0;
          bottom: 0;
          top: 0;
-         z-index: 2
+         z-index: 2;
+         display: none;
      }
      @include phone {
-         height: 350px;
-         img {
-             display: none
-         }
      }
  }
 
- .carousel-indicators li {
-     height: 20px;
-     width: 20px;
-     border-radius: 100%;
-     &.active {
-         background-color: $mainColor;
-         border: 2px solid #fff;
-     }
- }
+ .carousel-indicators {
+     li {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        &.active {
+            background-color: $mainColor;
+            border: 2px solid #fff;
+        }
+
+        
+        @include phone {
+            height: 10px;
+            width: 10px;
+        }
+    }
+
+    @include phone{
+        bottom: 0;
+        margin-bottom: 10px;
+    }
+ } 
 
  /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -1083,6 +1102,7 @@
              .article-image {
                  width: 30%;
                  left: 0;
+                 position: absolute
              }
          }
      }
