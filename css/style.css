@@ -483,6 +483,8 @@ body {
   text-transform: uppercase;
   margin-top: 10px;
   line-height: 16px;
+  position: relative;
+  z-index: 2;
 }
 
 .services .service-item:after {
@@ -495,6 +497,7 @@ body {
   top: 0;
   right: 0;
   display: none;
+  z-index: 1;
 }
 
 .services .service-item:hover::after {
@@ -567,6 +570,8 @@ body {
   text-transform: uppercase;
   margin-top: 10px;
   line-height: 16px;
+  position: relative;
+  z-index: 2;
 }
 
 .blog .post:after {
@@ -579,6 +584,7 @@ body {
   top: 0;
   right: 0;
   display: none;
+  z-index: 1;
 }
 
 .blog .post:hover::after {
@@ -677,6 +683,8 @@ body {
   text-transform: uppercase;
   margin-top: 10px;
   line-height: 16px;
+  position: relative;
+  z-index: 2;
 }
 
 .customers .customer-item:after {
@@ -689,6 +697,7 @@ body {
   top: 0;
   right: 0;
   display: none;
+  z-index: 1;
 }
 
 .customers .customer-item:hover::after {
@@ -1310,8 +1319,23 @@ footer .footer-social-links a {
   display: none;
 }
 
-.contact-page #map {
+.contact-page .contact-map {
+  position: relative;
+}
+
+.contact-page .contact-map #map {
   height: 610px;
+}
+
+.contact-page .contact-map #image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @media (max-width: 767px) {
@@ -1357,7 +1381,7 @@ footer .footer-social-links a {
   .contact-page .contact-left {
     position: relative;
   }
-  .contact-page #map {
+  .contact-page #map, .contact-page #image {
     height: 300px;
   }
   .contact-page .map-content {

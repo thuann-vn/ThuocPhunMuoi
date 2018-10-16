@@ -195,40 +195,36 @@
              }
          }
      }
-
-     #mobile-menu-close{
+     #mobile-menu-close {
          display: none;
          position: fixed;
          right: 60px;
          top: 20px;
          z-index: 10;
-
-         .lines{
-             &:before, &:after{
-                content: '';
-                height: 4px;
-                background: #fff;
-                display: block;
-                width: 26px;
-                margin: 10px;
-                transform-origin: center;
-                position: absolute;
+         .lines {
+             &:before,
+             &:after {
+                 content: '';
+                 height: 4px;
+                 background: #fff;
+                 display: block;
+                 width: 26px;
+                 margin: 10px;
+                 transform-origin: center;
+                 position: absolute;
              }
-
-             &:before{
-                transform: rotate(45deg);
+             &:before {
+                 transform: rotate(45deg);
              }
-             &:after{
-                transform: rotate(-45deg);
+             &:after {
+                 transform: rotate(-45deg);
              }
          }
-
-         @include phone{
-            display: block;
+         @include phone {
+             display: block;
          }
      }
-
-     @include phone{
+     @include phone {
          padding: 0 16px;
      }
  }
@@ -239,10 +235,9 @@
  /* Carousel base class */
 
  .carousel {
-    margin-top: 96px;
-    margin-bottom: 75px;
-
-     @include phone{
+     margin-top: 96px;
+     margin-bottom: 75px;
+     @include phone {
          margin-top: 56px;
      }
  }
@@ -292,32 +287,28 @@
          z-index: 2;
          display: none;
      }
-     @include phone {
-     }
+     @include phone {}
  }
 
  .carousel-indicators {
      li {
-        height: 20px;
-        width: 20px;
-        border-radius: 100%;
-        &.active {
-            background-color: $mainColor;
-            border: 2px solid #fff;
-        }
-
-        
-        @include phone {
-            height: 10px;
-            width: 10px;
-        }
-    }
-
-    @include phone{
-        bottom: 0;
-        margin-bottom: 10px;
-    }
- } 
+         height: 20px;
+         width: 20px;
+         border-radius: 100%;
+         &.active {
+             background-color: $mainColor;
+             border: 2px solid #fff;
+         }
+         @include phone {
+             height: 10px;
+             width: 10px;
+         }
+     }
+     @include phone {
+         bottom: 0;
+         margin-bottom: 10px;
+     }
+ }
 
  /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -471,6 +462,8 @@
              text-transform: uppercase;
              margin-top: 10px;
              line-height: 16px;
+             position: relative;
+             z-index: 2;
          }
          &:after {
              content: '';
@@ -481,7 +474,8 @@
              bottom: 0;
              top: 0;
              right: 0;
-             display: none
+             display: none;
+             z-index: 1;
          }
          &:hover {
              &::after {
@@ -489,27 +483,25 @@
              }
          }
      }
-
-     
      .owl-nav {
-        display: block !important;
-    }
-    .owl-carousel .owl-nav button.owl-next,
-    .owl-carousel .owl-nav button.owl-prev {
-        position: absolute;
-        top: 250px;
-        background-color: $mainColor;
-        padding: 15px 10px !important;
-        color: #fff;
-        display: block;
-        outline: none;
-        &:hover {
-            background-color: darken($mainColor, 10%);
-        }
-    }
-    .owl-carousel .owl-nav button.owl-next {
-        right: 0;
-    }
+         display: block !important;
+     }
+     .owl-carousel .owl-nav button.owl-next,
+     .owl-carousel .owl-nav button.owl-prev {
+         position: absolute;
+         top: 250px;
+         background-color: $mainColor;
+         padding: 15px 10px !important;
+         color: #fff;
+         display: block;
+         outline: none;
+         &:hover {
+             background-color: darken($mainColor, 10%);
+         }
+     }
+     .owl-carousel .owl-nav button.owl-next {
+         right: 0;
+     }
  }
 
  /* BLOG
@@ -548,6 +540,8 @@
              text-transform: uppercase;
              margin-top: 10px;
              line-height: 16px;
+             position: relative;
+             z-index: 2;
          }
          &:after {
              content: '';
@@ -558,7 +552,8 @@
              bottom: 0;
              top: 0;
              right: 0;
-             display: none
+             display: none;
+             z-index: 1;
          }
          &:hover {
              &::after {
@@ -645,6 +640,8 @@
              text-transform: uppercase;
              margin-top: 10px;
              line-height: 16px;
+             position: relative;
+             z-index: 2;
          }
          &:after {
              content: '';
@@ -655,7 +652,8 @@
              bottom: 0;
              top: 0;
              right: 0;
-             display: none
+             display: none;
+             z-index: 1;
          }
          &:hover {
              &::after {
@@ -1106,11 +1104,9 @@
              }
          }
      }
-
-     .article-sidebar{
+     .article-sidebar {
          margin-top: 30px;
      }
-     
      .sidebar-title {
          background: $mainColor;
          color: #ffffff;
@@ -1185,8 +1181,22 @@
          margin-bottom: 0;
          display: none;
      }
-     #map {
-         height: 610px;
+     .contact-map {
+         position: relative;
+        #map {
+            height: 610px;
+        }
+
+        #image{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
      }
      @include phone {
          .map-title:not(.contact-list-toggle) {
@@ -1230,7 +1240,7 @@
          .contact-left {
              position: relative
          }
-         #map {
+         #map, #image {
              height: 300px
          }
          .map-content {
@@ -1380,47 +1390,45 @@
          flex: 1;
      }
  }
- @include phone{
-    .hidden-xs{
-        display: none;
-    }
 
-    #navbarCollapse{
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
-        display: none;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-        background: rgba(47,55,59,0.97);
-        border: none;
-        height: 100% !important;
-
-        &.show, &.collapsing{
-            display: flex;
-        }
-        ul{
-            width: auto;
-            align-self: center;
-            margin: 0 auto;
-            border-color: transparent;
-
-            li{
-                text-align: center;
-                a{
-                    color: #fff;
-                    font-size: 20px;
-                }
-
-                &.active{
-                    a{
-                        color: $mainColor
-                    }
-                }
-            }
-        }
-    }
-}
+ @include phone {
+     .hidden-xs {
+         display: none;
+     }
+     #navbarCollapse {
+         position: fixed;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         top: 0;
+         display: none;
+         align-items: center;
+         align-content: center;
+         justify-content: center;
+         background: rgba(47, 55, 59, 0.97);
+         border: none;
+         height: 100% !important;
+         &.show,
+         &.collapsing {
+             display: flex;
+         }
+         ul {
+             width: auto;
+             align-self: center;
+             margin: 0 auto;
+             border-color: transparent;
+             li {
+                 text-align: center;
+                 a {
+                     color: #fff;
+                     font-size: 20px;
+                 }
+                 &.active {
+                     a {
+                         color: $mainColor
+                     }
+                 }
+             }
+         }
+     }
+ }

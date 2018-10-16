@@ -10,27 +10,30 @@ function initMap() {
     });
 
     $('.contact-list').find('li').each(function () {
-        var itemEl = $(this).find('a');
-        var lat = itemEl.data('lat');
-        var lng = itemEl.data('lng');
-        var marker = { lat: parseFloat(lat), lng: parseFloat(lng) };
-
-        // Create a marker and set its position.
-        var marker = new google.maps.Marker({
-            map: map,
-            position: marker,
-            title: itemEl.data('title')
-        });
-
-        itemEl.click(function(e){
+        $(this).find('a').click(function (e) {
             e.preventDefault();
+            var itemEl = $(this);
+            var lat = itemEl.data('lat');
+            var lng = itemEl.data('lng');
+            if (lat && lng) {
+                var marker = { lat: parseFloat(lat), lng: parseFloat(lng) };
 
-            map.panTo({ lat: parseFloat(lat), lng: parseFloat(lng) });
+                // Create a marker and set its position.
+                new google.maps.Marker({
+                    map: map,
+                    position: marker,
+                    title: itemEl.data('title')
+                });
+                map.panTo({ lat: parseFloat(lat), lng: parseFloat(lng) });
+                $('#image').hide();
+            } else {
+                $('#image').css('background-image', 'url(' + $(this).data('image') + ')').show();
+            }
 
             var addressEl = $('address');
             var dataList = ['address', 'tel', 'mobile', 'email'];
 
-            for(var i=0; i<dataList.length; i++){
+            for (var i = 0; i < dataList.length; i++) {
                 var name = dataList[i];
                 addressEl.find('.' + name).html($(this).data(name));
             }
