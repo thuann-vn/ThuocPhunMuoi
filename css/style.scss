@@ -889,13 +889,14 @@
   -------------------------------------------------- */
 
  .page-title {
-     height: 350px;
+     height: auto;
      display: flex;
      position: relative;
      text-align: center;
      align-items: center;
      margin-top: 96px;
      margin-bottom: 80px;
+     background: none !important;
      h1 {
          font-family: 'Gotham Medium';
          font-size: 86px;
@@ -906,23 +907,25 @@
          width: 100%;
          z-index: 2;
      }
-     &:before {
-         content: '';
-         background: #8ac53b;
-         opacity: .4;
-         display: block;
-         position: absolute;
-         left: 0;
-         top: 0;
-         bottom: 0;
-         right: 0;
-         z-index: 1;
-     }
+     img {
+         max-width: 100%;
+     } //  &:before {
+     //      content: '';
+     //      background: #8ac53b;
+     //      opacity: .4;
+     //      display: block;
+     //      position: absolute;
+     //      left: 0;
+     //      top: 0;
+     //      bottom: 0;
+     //      right: 0;
+     //      z-index: 1;
+     //  }
      @include phone {
-         margin-top: 76px;
+         margin-top: 56px;
          background-position: center;
-         height: 200px;
          margin-bottom: 30px;
+         height: auto;
          h1 {
              font-size: 40px;
          }
@@ -1183,20 +1186,19 @@
      }
      .contact-map {
          position: relative;
-        #map {
-            height: 610px;
-        }
-
-        #image{
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+         #map {
+             height: 610px;
+         }
+         #image {
+             position: absolute;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             top: 0;
+             background-position: center;
+             background-repeat: no-repeat;
+             background-size: cover;
+         }
      }
      @include phone {
          .map-title:not(.contact-list-toggle) {
@@ -1240,7 +1242,8 @@
          .contact-left {
              position: relative
          }
-         #map, #image {
+         #map,
+         #image {
              height: 300px
          }
          .map-content {

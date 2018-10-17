@@ -986,7 +986,7 @@ footer .footer-social-links a {
 /* SUPPORT CSS
   -------------------------------------------------- */
 .page-title {
-  height: 350px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -997,6 +997,7 @@ footer .footer-social-links a {
           align-items: center;
   margin-top: 96px;
   margin-bottom: 80px;
+  background: none !important;
 }
 
 .page-title h1 {
@@ -1010,25 +1011,16 @@ footer .footer-social-links a {
   z-index: 2;
 }
 
-.page-title:before {
-  content: '';
-  background: #8ac53b;
-  opacity: .4;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
+.page-title img {
+  max-width: 100%;
 }
 
 @media (max-width: 767px) {
   .page-title {
-    margin-top: 76px;
+    margin-top: 56px;
     background-position: center;
-    height: 200px;
     margin-bottom: 30px;
+    height: auto;
   }
   .page-title h1 {
     font-size: 40px;
@@ -1381,7 +1373,8 @@ footer .footer-social-links a {
   .contact-page .contact-left {
     position: relative;
   }
-  .contact-page #map, .contact-page #image {
+  .contact-page #map,
+  .contact-page #image {
     height: 300px;
   }
   .contact-page .map-content {
